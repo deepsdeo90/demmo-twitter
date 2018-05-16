@@ -1,0 +1,28 @@
+
+<div class="timeline-tweetlist-tweet">
+						    <div class="timeline-tweet">
+						      <div class="timeline-tweet-brand">
+						        <div class="icon icon--twitter"></div>
+						      </div>
+							      <div class="timeline-tweet-author">
+							        <div class="tweet-author"><a class="tweet-author-link" href="#channel"> </a><span class="tweet-author-avatar"> 
+							            <div ng-style="{'background-image':'url('+tweet.user.profile_image_url_https+')'}" class="avatar"> </div>
+							        </span><span class="tweet-author-name">{{tweet.user.name}} </span><span class="icon icon--verified"> </span><span class="tweet-author-screenName">@{{tweet.user.screen_name}}&nbsp;.&nbsp;    {{tweet.created_at | amTimeAgo}}
+								 </span>  <span *ngIf="retweet" class="retweeted">Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span></div>
+							      </div>
+						      	  <div class="timeline-tweet-text"  [innerHTML]="tweet | tweet"></div>
+							      <div *ngIf="hasPhoto(tweet)" class="img-outer" >
+							      	<img data-aria-label-part=""  [src]="tweet.entities?.media[0].media_url_https" (click)="media = true" style="width: 35%;  border-radius: 4px ">
+		
+							      </div>
+						      	 <ul class="timeline-tweet-actions">
+						        <li class="timeline-tweet-action"><a class="icon glyphicon glyphicon-heart-empty" href="#"><span>{{tweet.favorite_count}}</span></a></li>
+						        <li class="timeline-tweet-action"><a class="icon glyphicon glyphicon-comment" href="#"><span>{{tweet.retweet_count}}</span></a></li>
+						      </ul>
+	
+						      </div>
+						      
+						     
+
+						    </div>
+						  

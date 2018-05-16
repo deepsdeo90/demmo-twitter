@@ -1,0 +1,71 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-collapse navbar-collapse-1 collapse" aria-expanded="true">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="#fake"><span class="glyphicon glyphicon-home"></span> Home</a>
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="row">
+		
+		<div class="col-sm-10">
+			<div class="panel panel-info">
+				<div class="panel-heading" style="background-color:#E8F5FD">
+					<div class="media ">
+						<div class="media-body row">
+							<form ngNativeValidate class="form-inline"(submit)="getTweets(searchTweet)" >
+		  
+							<div class="col-sm-4">
+								<div class="input-group  has-feedback">
+								<input [(ngModel)]="searchTweet" name="tweet"  autocomplete="off" class="form-control" type="search" placeholder="Search" aria-label="Search" required="required" >
+								<span class="input-group-btn">
+							        <button class="btn btn-default" type="submit">Go!</button>
+							    </span>
+								</div>
+							</div>	
+							<div class="col-sm-2">
+									<input type="number" (click)="changeRows(numLimit)" name="numLimit"  [(ngModel)]="numLimit" class="form-control " value="200" placeholder="Count" >
+
+							</div>
+
+							<div class="col-sm-3">
+								<button (click)="sort('favorite_count')" class="btn btn-primary">Sort By Faviourite 
+									<span class="glyphicon glyphicon-triangle-bottom"*ngIf="!visible"  aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-triangle-top" *ngIf="visible" aria-hidden="true"></span>
+								
+								</button>
+							</div>
+
+							<div class="">
+								<button (click)="sort('retweet_count')" class="btn btn-primary">Sort By Comment 
+									<span class="glyphicon glyphicon-triangle-bottom"*ngIf="!visibleComment"  aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-triangle-top" *ngIf="visibleComment" aria-hidden="true"></span>
+								</button>	
+							</div>
+							</form>
+							
+							
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<!-- tw-block parent-->
+					<div class="tw-block-parent" *ngFor="let tweet of tweets | slice:0:numLimit | orderBy: {property: column, direction: direction}	">
+					    <app-tweet [tweet]="tweet"></app-tweet>
+					  </div>
+					
+
+				</div>
+			</div>
+
+		</div>
+
+		
+	</div>
+</div>

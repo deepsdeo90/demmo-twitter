@@ -1,0 +1,40 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic';
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	background-color: #337AB7;
+}
+body{
+	background-color: #E6ECF0;
+}
+.navbar-default .navbar-collapse, .navbar-default{
+background-color: white;
+}
+a{
+	color:#60A6C1;
+}
+div.panel-heading{
+	padding-top:15px;
+	padding-bottom: 15px;
+}
+.panel-info{
+	border:1px lightgrey solid;
+}
+
+
+.tw-block-parent {
+  font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
+  font-weight: 300;
+  color: #292F33;
+  border-bottom: 1px solid #e6ecf0;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	color: #FFF;
+}
+
+input[type="number"] {
+    width: 85px;
+}
+/*
+input:required {
+  border:1px solid red ;
+}*/

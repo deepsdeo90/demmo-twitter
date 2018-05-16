@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  api: 'https://demo-twitter-dd.herokuapp.com/'
+
 };
