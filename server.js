@@ -39,11 +39,11 @@ res.sendFile(path.join(__dirname+'/dist/demo-twitter/index.html'));
 });
 */
 app.get('/api/searchTweets', (req, res) => {
-  console.log("consumerkey "+process.env.CONSUMER_KEY_TWITTER);
+ /* console.log("consumerkey "+process.env.CONSUMER_KEY_TWITTER);
 console.log(process.env.CONSUMER_SECRET);
 console.log(process.env.ACCESS_TOKEN);
 console.log(process.env.ACCESS_TOKEN_SECRET);
-
+*/
     const params = { tweet_mode: 'extended', count: 200,result_type: 'recent' };
    // console.log(req.query.search);
     if (req.query.search) {
