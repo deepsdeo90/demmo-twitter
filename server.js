@@ -15,12 +15,21 @@ console.log("consumerkey "+process.env.CONSUMER_KEY_TWITTER);
 console.log(process.env.CONSUMER_SECRET);
 console.log(process.env.ACCESS_TOKEN);
 console.log(process.env.ACCESS_TOKEN_SECRET);
-
+/*
 const client = new Twitter({
  consumer_key: process.env.CONSUMER_KEY_TWITTER,
  consumer_secret: process.env.CONSUMER_SECRET,
  access_token: process.env.ACCESS_TOKEN,
  access_token_secret: process.env.ACCESS_TOKEN_SECRET
+});
+*/
+
+
+const client = new Twitter({
+  consumer_key: 'EMU5G64RqPfrLnf6ebp3RsA2S',
+ consumer_secret: 'aWKp29GUseDyqGynDFcC5RArx6SPeU7ulvTp95GMmXLZYK9Cfg',
+ access_token: '453947367-8lJmZPMR69GEgNgksrDIUDG7GjKA1XDvROTNB42c',
+ access_token_secret: 'MaUb6uLojEMMjRMwSjDkNlSU8KJwBUwQ0Y14Uw2XLl2fo'
 });
 
 app.use(require('cors')());
