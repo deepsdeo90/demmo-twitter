@@ -34,6 +34,16 @@ div.panel-heading{
 input[type="number"] {
     width: 85px;
 }
+.flex-container{
+  display: flex;
+    flex-wrap: wrap;
+
+   justify-content: space-evenly;
+   width: 100%;
+}
+.flex-container > .flex-item {
+
+}
   @media only screen and (max-width: 768px) {
    .mobile {
           margin: 2% auto;

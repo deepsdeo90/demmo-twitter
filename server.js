@@ -26,7 +26,7 @@ res.sendFile(path.join(__dirname+'/dist/demo-twitter/index.html'));
 */
 app.get('/api/searchTweets', (req, res) => {
 
-    const params = { tweet_mode: 'extended', count: 200,result_type: 'recent' };
+    const params = { tweet_mode: 'extended', count: 200,result_type: 'mixed' };
    // console.log(req.query.search);
     if (req.query.search) {
       params.q = req.query.search;

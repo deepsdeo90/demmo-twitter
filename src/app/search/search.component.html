@@ -14,40 +14,45 @@
 <div class="container">
 	<div class="row">
 		
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-info">
 				<div class="panel-heading" style="background-color:#E8F5FD">
 					<div class="media ">
-						<div class="media-body row ">
+						<div class="media-body flex-container ">
 							
-							<div class="col-sm-4 col-xs-12 ">
+							<div class=" flex-item">
 								<form ngNativeValidate class="form-inline"(submit)="getTweets(searchTweet)" >
 		  
 								<div class="input-group  has-feedback mobile">
-								<input [(ngModel)]="searchTweet" name="tweet"  autocomplete="off" class="form-control" type="search" placeholder="Search" aria-label="Search" required="required" >
+								<input [(ngModel)]="searchTweet" name="tweet"  autocomplete="off" class="form-control" type="search" placeholder="#ManUnited OR #GSW" aria-label="Search" required="required" >
 								<span class="input-group-btn">
 							        <button class="btn btn-default" type="submit">Go!</button>
 							    </span>
 								</div>
 								</form>
 							</div>	
-							<div class="col-sm-2 col-xs-12">
-									<input type="number" (click)="changeRows(numLimit)" name="numLimit"  [(ngModel)]="numLimit" class="form-control mobile " value="200" placeholder="Count" >
+							<div class="flex-item">
+									<input type="number" max="200" step="1" (click)="changeRows(numLimit)" name="numLimit"  [(ngModel)]="numLimit" ng-init="numLimit=5" class="form-control mobile " value="200" placeholder="Count" >
 
 							</div>
 
-							<div class="col-sm-3 col-xs-12 mobile">
-								<button (click)="sort('favorite_count')" class="btn btn-primary">Sort By Faviourite 
+							<div class="flex-item">
+								<button (click)="sort('favorite_count')" class="btn btn-primary">Faviourite 
 									<span class="glyphicon glyphicon-triangle-bottom"*ngIf="!visible"  aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-triangle-top" *ngIf="visible" aria-hidden="true"></span>
 								
 								</button>
 							</div>
 
-							<div class="col-sm-3  col-xs-12 mobile">
-								<button (click)="sort('retweet_count')" class="btn btn-primary">Sort By Comment 
+							<div class="flex-item">
+								<button (click)="sort('retweet_count')" class="btn btn-primary">Comment 
 									<span class="glyphicon glyphicon-triangle-bottom"*ngIf="!visibleComment"  aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-triangle-top" *ngIf="visibleComment" aria-hidden="true"></span>
+								</button>	
+							</div>
+							<div class="flex-item">
+								<button (click)="sort('created_at')" class="btn btn-primary">Latest 
+									
 								</button>	
 							</div>
 							
@@ -56,12 +61,15 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<!-- tw-block parent-->
+					
+					<div *ngIf="tweets.length>0;else noresult ">
+						
 					<div class="tw-block-parent" *ngFor="let tweet of tweets | slice:0:numLimit | orderBy: {property: column, direction: direction}	">
 					    <app-tweet [tweet]="tweet"></app-tweet>
-					  </div>
+					</div>
+					</div>
+					<ng-template #noresult >No Result Found</ng-template>
 					
-
 				</div>
 			</div>
 

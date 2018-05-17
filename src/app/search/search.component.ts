@@ -25,25 +25,36 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
   getTweets(searchTweet:string) {
-  	console.log("inside search tweet"+searchTweet);
   		
   	this.twitter.searchTweets(searchTweet).subscribe(tweets => {
-    	
-    	tweets.statuses.reverse().forEach(tweet => {
+    	if(tweets.statuses.length>0){
+
+      tweets.statuses.reverse().forEach(tweet => {
     			//console.log("retweet status"+tweet.retweeted_status);
 
     			//console.log(tweet.retweeted_status);
     			if (tweet.retweeted_status) {
     				tweet =tweet.retweeted_status;
     			} 
-    			this.tweets.unshift(tweet);
+    			this.tweets.push(tweet);
     	});
+      }else{
+        this.tweets.length=0;
+        this.tweets =[];
+      }
+      
+
     	console.log("showing tweets");
     	console.log(tweets.statuses);
     });
   }
 
   sort(property){
+  this.column = property;
+    
+  if(property=='created_at'){
+    this.direction=-1;
+  }else{
     this.isDesc = !this.isDesc; //change the direction    
     this.column = property;
     this.direction = this.isDesc ? 1 : -1;
@@ -53,6 +64,8 @@ export class SearchComponent implements OnInit {
     if(property=='retweet_count'){
       this.visibleComment = !this.visibleComment;
     }
+  }
+    
   
 }
 
