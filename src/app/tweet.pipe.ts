@@ -1,3 +1,6 @@
+/*
+Format tweet data using pipe
+*/
 import { Pipe, PipeTransform, SecurityContext } from '@angular/core';
 import { Tweet } from './tweet';
 import { DomSanitizer } from '@angular/platform-browser';

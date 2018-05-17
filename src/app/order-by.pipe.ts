@@ -1,3 +1,6 @@
+/*
+Pipe for implmenting sorting functionality for sort by comment count, favourite count and latest tweets
+*/
 import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({  name: 'orderBy' })
 export class OrderByPipe implements PipeTransform {

@@ -1,3 +1,4 @@
+//include polyfills after deploying to heroku
 import './polyfills.ts';
 
 import { enableProdMode } from '@angular/core';

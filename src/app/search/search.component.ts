@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   numLimit:number;
   visible = false;
   visibleComment = false;
+  ids = [];
 
   constructor(private twitter: TwitterService) { }
 
@@ -27,16 +28,20 @@ export class SearchComponent implements OnInit {
   getTweets(searchTweet:string) {
   		
   	this.twitter.searchTweets(searchTweet).subscribe(tweets => {
+    //check if there are any tweets
     	if(tweets.statuses.length>0){
 
       tweets.statuses.reverse().forEach(tweet => {
-    			//console.log("retweet status"+tweet.retweeted_status);
+      //check if it is retweet , consider this for comment count
 
-    			//console.log(tweet.retweeted_status);
     			if (tweet.retweeted_status) {
     				tweet =tweet.retweeted_status;
     			} 
-    			this.tweets.push(tweet);
+           if (this.ids.indexOf(tweet.id_str) < 0) {
+              this.ids.push(tweet.id_str);
+              this.tweets.unshift(tweet);
+            }
+    			//this.tweets.push(tweet);
     	});
       }else{
         this.tweets.length=0;
