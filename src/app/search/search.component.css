@@ -34,6 +34,13 @@ div.panel-heading{
 input[type="number"] {
     width: 85px;
 }
+  @media only screen and (max-width: 768px) {
+   .mobile {
+          margin: 2% auto;
+        float: none;
+        text-align: center;
+    }
+  }
 /*
 input:required {
   border:1px solid red ;
