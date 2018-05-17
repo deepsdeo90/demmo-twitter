@@ -7,10 +7,8 @@ import { AppComponent } from './app.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { TweetPipe } from './tweet.pipe';
 import { SearchComponent } from './search/search.component';
-import { LandingComponent } from './landing/landing.component';
 import {FormsModule} from "@angular/forms";
 import { OrderByPipe } from './order-by.pipe';
-import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +16,6 @@ import { AppRoutingModule } from './/app-routing.module';
     TweetComponent,
     TweetPipe,
     SearchComponent,
-    LandingComponent,
     OrderByPipe
 
   ],
@@ -26,8 +23,7 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     HttpClientModule,
     MomentModule,
-    FormsModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

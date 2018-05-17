@@ -49,8 +49,8 @@ export class SearchComponent implements OnInit {
       }
       
 
-    	console.log("showing tweets");
-    	console.log(tweets.statuses);
+    	//console.log("showing tweets");
+    	//console.log(tweets.statuses);
     });
   }
 
